@@ -1,0 +1,9 @@
+
+# http://www.w3.org/TR/CSS2/syndata.html#vendor-keywords
+
+prefixMicrosoft		::= "-ms-" | "mso-"
+prefixMozilla		::= "-moz-"
+prefixOpera			::= "-o-" | "-xv-"
+prefixKhtml			::= "-khtml-"
+prefixWebkit		::= "-webkit-"
+vendorPrefix		::= <prefix-microsoft> | <prefix-mozilla> | <prefix-opera> | <prefix-khtml> | <prefix-webkit>

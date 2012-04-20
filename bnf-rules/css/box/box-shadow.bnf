@@ -1,0 +1,3 @@
+boxShadow			::= (<prefixMozilla> | <prefixWebkit>)? "box-shadow:" <space>+ <boxShadowValue>
+boxShadowValue		::=	<none> | <shadow> (<comma> <shadow>)*
+shadow				::= ("inset"? && <length> (<space>+ <length>){1,4} && <color>?)

@@ -1,0 +1,41 @@
+# http://dev.w3.org/csswg/css3-images/#gradients
+# http://www.w3.org/TR/css3-background/
+# http://webkit.org/blog/1424/css3-gradients/
+# http://developer.mozilla.org/en/CSS/-moz-linear-gradient
+# tests -- http://www.broken-links.com/tests/gradients/
+
+colorStop			::= (<color> | "currentColor" | "transparent") (<space>+ (<percentage> | <length>))?
+shape				::= "circle" | "ellipse"
+
+# CSS 3
+gradientSize 		::= "closest-side" | "closest-corner" | "farthest-side" | "farthest-corner"
+
+# CSS3 older and used here (http://www.w3.org/TR/2011/WD-css3-images-20110712/)
+gradientSize 		::= "closest-side" | "closest-corner" | "farthest-side" | "farthest-corner" | "contain" | "cover"
+
+linearGradient		::= "linear-gradient" <space>* "(" <space>* (<gradientLine> <comma>)? <colorStop> (<comma> <colorStop>)+ <space>* ")"
+
+# keyword "to" described in CSS3 images standard
+gradientLine		::= ("to" <space>+)? (("left" | "right") || ("top" | "bottom")) | <angle>
+
+# CSS3 latest (http://www.w3.org/TR/css3-images/)
+radialGradient		::= "radial-gradient" <space>* "("
+					(
+						(<shape> || <gradientSize>) (<space>+ "at" <space>+ <position>)? <comma>
+						| <space>* "at" <space>+ <position> <comma>
+                          )?
+					<colorStop> (<comma> <colorStop>)+ <space>* ")"
+
+# CSS3 first edition (http://www.w3.org/TR/2011/WD-css3-images-20110217/)
+# It matches all test cases and covers Mozilla version (https://developer.mozilla.org/en/CSS/radial-gradient)
+radialGradient		::= "radial-gradient" <space>* "("
+						(<backgroundPosition> <comma>)?
+						(((<shape> || <gradientSize>) | (<length> | <percentage>) <space>+ (<length> | <percentage>)) <comma>)?
+						<colorStop> (<comma> <colorStop>)+ <space>* ")"
+
+
+gradientVendor		::= <prefixWebkit> | <prefixOpera> | <prefixMicrosoft>
+#todo: remove <mozLinearGradient> | <mozRadialGradient>, removing it crashes only one (last) test
+gradient			::= <gradientVendor>? ("repeating-"? <linearGradient> | "repeating-"? <radialGradient>)
+						| <mozLinearGradient> | <mozRadialGradient>
+						| <webkitGradient>

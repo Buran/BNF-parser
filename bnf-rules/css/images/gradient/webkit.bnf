@@ -1,0 +1,24 @@
+
+# Webkit specific gradients
+
+webkitPoint			::= <pointH> && <pointV>
+webkitRadialPoint	::= <webkitPoint> (<comma> (<percentage> | <length>))?
+
+#todo: make here && support and custom separator
+
+webkitStop			::= <webkitColorStop>*
+						(
+							<comma> "from(" <color> ")"
+							<webkitColorStop>* <comma>
+							"to(" <color> ")"
+							|
+							<comma> "to(" <color> ")"
+							<webkitColorStop>*
+							<comma> "from(" <color> ")"
+						)?
+						<webkitColorStop>*
+webkitColorStop		::= <comma> "color-stop(" ( (<percentage> | <OnePointNumber>) <comma>)? <color> ")"
+webkitGradient		::= <prefixWebkit> "gradient" <space>* "(" <space>* (
+						"linear" <comma> <webkitPoint> <comma> <webkitPoint>
+						| "radial" <comma> <webkitRadialPoint> <comma> <webkitRadialPoint>
+						) <webkitStop>? <space>* ")"

@@ -1,0 +1,8 @@
+
+# Mozilla specific gradients
+
+mozLinearGradient	::= <prefixMozilla> "repeating-"? "linear-gradient" <space>* "(" (<mozGradientOrigin> <comma>)? <colorStop> (<comma> <colorStop> )+ <space>* ")"
+mozRadialGradient	::= <prefixMozilla> "repeating-"? "radial-gradient" <space>* "(" (<mozGradientOrigin> <comma>)? (<mozGradientShape> <comma>)? <colorStop> (<comma> <colorStop>)+ <space>* ")"
+mozGradientOrigin	::= <angle> (<space>+ <mozGradientPoint>)? | <mozGradientPoint> (<space>+ <angle>)?
+mozGradientPoint	::=	(<pointH> || <pointV>) | "top" | "center" | "bottom" | "inherit"
+mozGradientShape	::= <shape> (<space>+ <gradientSize>)? | <gradientSize>

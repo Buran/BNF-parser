@@ -1,0 +1,91 @@
+background: #e4f5fc; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #e4f5fc 0%, #bfe8f9 50%, #9fd8ef 51%, #2ab0ed 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#e4f5fc), color-stop(50%,#bfe8f9), color-stop(51%,#9fd8ef), color-stop(100%,#2ab0ed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* IE10+ */
+background: linear-gradient(-45deg,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+background: #1e5799; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+background: radial-gradient(center, ellipse cover,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
+linear-gradient(yellow, blue);
+linear-gradient(to bottom, yellow, blue);
+linear-gradient(180deg, yellow, blue);
+linear-gradient(to top, blue, yellow);
+linear-gradient(to bottom, yellow 0%, blue 100%);
+
+linear-gradient(yellow, blue);
+linear-gradient(left, yellow, blue);
+linear-gradient(bottom, blue, yellow);
+linear-gradient(-90deg, yellow, blue);
+linear-gradient(270deg, yellow, blue);
+linear-gradient(top, yellow 0%, blue 100%);
+
+linear-gradient(top left, yellow, blue);
+linear-gradient(bottom left, red 20px, yellow, green, blue 90%);
+linear-gradient(yellow, blue 20%, #0f0);
+linear-gradient(-45deg, yellow, blue);
+linear-gradient(315deg, yellow, blue);
+
+radial-gradient(yellow, green);
+radial-gradient(center, ellipse cover, yellow 0%, green 100%);
+radial-gradient(50% 50%, farthest-corner, yellow, green);
+radial-gradient(circle, yellow, green);
+radial-gradient(red, yellow, green);
+radial-gradient(bottom left, farthest-side, red, yellow 50px, green);
+radial-gradient(20px 30px, contain, red, yellow, green);
+radial-gradient(20px 30px, 20px 30px, red, yellow, green);
+radial-gradient(20px 30px, circle contain, red, yellow, green);
+radial-gradient(20px 30px, 20px 20px, red, yellow, green);
+
+
+-webkit-linear-gradient(red, green, blue);
+-webkit-radial-gradient(circle, white, black);
+-webkit-linear-gradient(left, white, black)
+-webkit-linear-gradient(top right, white, black)
+-webkit-linear-gradient(135deg, white, black)
+-webkit-radial-gradient(white, black)
+-webkit-radial-gradient(10% 30%, white, black)
+-webkit-radial-gradient(30% 30%, closest-corner, white, black)
+-webkit-radial-gradient(30% 30%, circle closest-corner, white, black)
+-webkit-radial-gradient(center, 5em 40px, white, black)
+-webkit-linear-gradient(left, red, green, blue)
+-webkit-linear-gradient(bottom left, red 20px, yellow, green, blue 90%)
+-webkit-linear-gradient(top left, red, yellow, green 60%, purple 60%, blue)
+-webkit-repeating-linear-gradient(left, red 10%, blue 30%)
+-webkit-repeating-radial-gradient(top left, circle, red, blue 10%, red 20%)
+
+-moz-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+-moz-linear-gradient(top left, red, rgba(255,0,0,0));
+
+
+-moz-linear-gradient (left, green, yellow);
+-webkit-gradient (linear, left center, right center, from(green), to(yellow));
+-moz-linear-gradient(45deg, green, yellow);
+-webkit-gradient(linear, left bottom, right top, from(green), to(yellow));
+-moz-linear-gradient(90deg, green, yellow, blue);
+-webkit-gradient(linear, center bottom, center top, from(green), color-stop(50%,yellow), to(blue));
+-moz-linear-gradient(90deg, green, yellow 25%, blue);
+-webkit-gradient(linear, center bottom, center top, from(green), color-stop(25%,yellow), to(blue));
+-moz-radial-gradient(green, yellow);
+-webkit-gradient(radial, center center, 0, center center, 70.5, from(green), to(yellow));
+-moz-radial-gradient(40% 40%, farthest-side, green, yellow);
+-webkit-gradient(radial, 40% 40%, 0, 40% 40%, 60, from(green), to(yellow));
+-moz-radial-gradient(40% 40%, closest-side, green, yellow);
+-webkit-gradient(radial, 40% 40%, 0, 40% 40%, 40, from(green), to(yellow));
+-moz-radial-gradient(right top, green, yellow, blue);
+-webkit-gradient(radial, right top, 0, right top, 141, from(green), color-stop(50%, yellow), to(blue));
+-moz-radial-gradient(60% 60%,circle contain,yellow,green 75%,rgba(255,255,255,0));
+-webkit-gradient(radial,45% 45%,5,60% 60%,40,from(yellow),color-stop(75%, green),to(rgba(255,255,255,0)));
+
+-moz-linear-gradient(top left -45deg, red, red 5px, white 5px, white 10px);

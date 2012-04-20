@@ -1,0 +1,11 @@
+E { background: #CCC url("metal.jpg") top left / 100% auto no-repeat}
+body { background: red }
+p { background: gray url("chess.png") 40% / 10em
+       round fixed border-box; }
+
+div { background: white url(paper.jpg) center padding-box}
+
+background: url(a.png) top left no-repeat,
+            url(b.png) center / 100% 100% no-repeat,
+            white url(c.png);
+

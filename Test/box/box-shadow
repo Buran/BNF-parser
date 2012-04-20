@@ -1,0 +1,8 @@
+box-shadow: inset 10px 10px 5px #888;
+box-shadow: inset 2px 2px 2px 2px aqua;
+box-shadow: 2px 2px 2px 2px aqua inset;
+box-shadow: aqua 2px 2px inset;
+box-shadow: 10px 10px #888, -10px -10px #f4f4f4, 0px 0px 5px 5px #cc6600;
+box-shadow: 10px 10px hsla(120, 100%, 50%, 1);
+box-shadow: inset 2 10px 10px rgba(0,0,0,0.4);
+box-shadow: 10px 10px hsla(120, 100%, 50%, 1);

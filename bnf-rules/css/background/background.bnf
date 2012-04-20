@@ -1,0 +1,29 @@
+bgColor				::=	<color> | "transparent" | "currentColor"
+bgImage				::=	<image> | <gradient>  | "none"
+
+# CSS 2.1 http://www.w3.org/TR/CSS21/colors.html#propdef-background-position
+backgroundPosition	::=	<pointH> (<space>+ <pointV>)? | (("left" | "center" | "right") || ( "top" | "center" | "bottom"))
+#backgroundPosition	::=	<pointH> (<space>+ <pointV>)? | (<originV> || <originH>) | "top" | "bottom"
+originH				::= "center" | ("left" | "right") (<space>+ (<percentage> | <length>))?
+originV				::= "center" | ("top" | "bottom") (<space>+ (<percentage> | <length>))?
+
+# CSS3 version http://www.w3.org/TR/css3-background/
+position			::=	(<pointH> | "top" | "bottom") | <pointH> <space>+ <pointV> |
+						(
+							("center" | ("left" | "right" ) (<percentage> | <length>)?)
+							&& ("center" | ("top" | "bottom" ) (<percentage> | <length>)?)
+						)
+pointH				::= "left" | "center" | "right" | <percentage> | <length>
+pointV				::= "top" | "center" | "bottom" | <percentage> | <length>
+
+
+bgSize				::= (<percentage> | <length> | "auto") (<space>+ (<percentage> | <length> | "auto"))? | "cover" | "contain"
+bgRepeat			::= "repeat-x" | "repeat-y" | ("repeat" | "space" | "round" | "no-repeat") (<space>+ ("repeat" | "space" | "round" | "no-repeat"))?
+bgAttachment		::= "scroll" | "fixed" | "local"
+bgBox				::= "border-box" | "padding-box" | "content-box"
+bgLayer				::= (<bgImage><space>*)? (<position> (<space>* "/" <space>* <bgSize>)? <space>*)? (<bgRepeat> <space>*)? (<bgAttachment> <space>*)? (<bgBox> <space>* (<bgBox> <space>*)?)?
+finalBgLayer		::= (<bgColor><space>*)? <bgLayer>
+background			::= "background:" <space>* ((<bgLayer> | "inherit") <comma>)* (<finalBgLayer> | "inherit") <important>
+
+
+image				::= "url(" ("'" ^"'"+ "'" | "\"" ^"\""+ "\"" | ^")"+ ) ")" #todo: replace with <url> and <dataUri>

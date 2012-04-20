@@ -1,0 +1,3 @@
+marginWidth			::= <space>* (<number> (<unit> | <percentage>) | "auto")
+marginPart			::= "margin-" ("top" | "right" | "bottom" | "left") <space>* ":" (<marginWidth> | "inherit")
+margin				::= "margin" <space>* ":" (<marginWidth>{1,3} | "inherit")

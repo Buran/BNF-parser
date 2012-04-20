@@ -1,0 +1,8 @@
+#shadow	::= ("inset" <space>+)? && (<length> (<space>+ <length>){1,4}) && (<space>+ <color>)?
+space				::= ([#0x0009] | [#0x000B] | [#0x000C] | [#0x000D] | [#0x0020] | [#0x000A] | [#0xFEFF])+
+#test	::= ("a"? && "b" (<space>+ "b"){1,4} && <c>?) "d"?
+#c	::= ("c" | "e")
+
+
+a	::= "c" && "d"
+

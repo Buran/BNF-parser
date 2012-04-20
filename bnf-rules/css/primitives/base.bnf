@@ -1,0 +1,29 @@
+digit				::= [0-9]
+hex					::= <digit> | "A" | "B" | "C" | "D" | "E" | "F" | "a" | "b" | "c" | "d" | "e" | "f"
+lowalpha			::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+hialpha				::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+alpha				::= <lowalpha> | <hialpha>
+relunit				::= "px" | "em" | "ex" | "ch" | "rem"
+absunit				::= "mm" | "cm" | "in" | "pt" | "pc" | "mozmm"
+unit				::= <relunit> | <absunit>
+
+PositiveNumber		::=  <digit>+ ("." <digit>*)? | "." <digit>+
+PositiveInteger		::=  <digit>+
+OnePointNumber		::=  "1" "."? | "0" ("." <digit>* )? | "0"? ("." <digit>+ )
+
+number				::=  ("+" | "-")? <PositiveNumber>
+integer				::=  ("+" | "-")? <PositiveInteger>
+percentage			::=  <number> "%"
+angle				::= <number> ( "deg" | "grad" | "rad" ) | "0"
+space				::= [#0x0009] | [#0x000B] | [#0x000C] | [#0x000D] | [#0x0020] | [#0x000A] | [#0xFEFF] | <comment>
+						#tab:	0009
+						#vertical tabulation:	000B
+						#form feed:	000C
+						#CR:	000D
+						#space:	0020
+						#LF:	000A
+						#zero width no-break space	FEFF
+comment				::= "/*" ^"*/"* "*/"
+length				::= <number> (<relunit> | <absunit>)?
+comma				::= <space>* "," <space>*
+important			::= (<space>* "!important")?

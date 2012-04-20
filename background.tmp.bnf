@@ -1,0 +1,131 @@
+test				::= "1" | "2" | "abc"
+
+digit				::= [0-9]
+hex					::= <digit> | "A" | "B" | "C" | "D" | "E" | "F" | "a" | "b" | "c" | "d" | "e" | "f"
+lowalpha			::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+hialpha				::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+colorKeyword 		::= "aliceblue" | "antiquewhite" | "aqua" | "aquamarine" | "azure" | "beige" | "bisque" | "black" | "blanchedalmond" | "blue" | "blueviolet" | "brown" | "burlywood" | "cadetblue" | "chartreuse" | "chocolate" | "coral" | "cornflowerblue" | "cornsilk" | "crimson" | "cyan" | "darkblue" | "darkcyan" | "darkgoldenrod" | "darkgray" | "darkgreen" | "darkgrey" | "darkkhaki" | "darkmagenta" | "darkolivegreen" | "darkorange" | "darkorchid" | "darkred" | "darksalmon" | "darkseagreen" | "darkslateblue" | "darkslategray" | "darkslategrey" | "darkturquoise" | "darkviolet" | "deeppink" | "deepskyblue" | "dimgray" | "dimgrey" | "dodgerblue" | "firebrick" | "floralwhite" | "forestgreen" | "fuchsia" | "gainsboro" | "ghostwhite" | "gold" | "goldenrod" | "gray" | "green" | "greenyellow" | "grey" | "honeydew" | "hotpink" | "indianred" | "indigo" | "ivory" | "khaki" | "lavender" | "lavenderblush" | "lawngreen" | "lemonchiffon" | "lightblue" | "lightcoral" | "lightcyan" | "lightgoldenrodyellow" | "lightgray" | "lightgreen" | "lightgrey" | "lightpink" | "lightsalmon" | "lightseagreen" | "lightskyblue" | "lightslategray" | "lightslategrey" | "lightsteelblue" | "lightyellow" | "lime" | "limegreen" | "linen" | "magenta" | "maroon" | "mediumaquamarine" | "mediumblue" | "mediumorchid" | "mediumpurple" | "mediumseagreen" | "mediumslateblue" | "mediumspringgreen" | "mediumturquoise" | "mediumvioletred" | "midnightblue" | "mintcream" | "mistyrose" | "moccasin" | "navajowhite" | "navy" | "oldlace" | "olive" | "olivedrab" | "orange" | "orangered" | "orchid" | "palegoldenrod" | "palegreen" | "paleturquoise" | "palevioletred" | "papayawhip" | "peachpuff" | "peru" | "pink" | "plum" | "powderblue" | "purple" | "red" | "rosybrown" | "royalblue" | "saddlebrown" | "salmon" | "sandybrown" | "seagreen" | "seashell" | "sienna" | "silver" | "skyblue" | "slateblue" | "slategray" | "slategrey" | "snow" | "springgreen" | "steelblue" | "tan" | "teal" | "thistle" | "tomato" | "turquoise" | "violet" | "wheat" | "white" | "whitesmoke" | "yellow" | "yellowgreen"
+alpha				::= <lowalpha> | <hialpha>
+relunit				::= "px" | "em" | "ex" | "ch" | "rem"
+absunit				::= "mm" | "cm" | "in" | "pt" | "pc" | "mozmm"
+unit				::= <relunit> | <absunit>
+PositiveNumber		::=  <digit>+ ( "." <digit>* )? | "." <digit>+
+PositiveInteger		::=  <digit>+
+OnePointNumber		::=  "1" "."? | "0" ("." <digit>* )? | "0"? ("." <digit>+ )
+number				::=  ("+" | "-")? <PositiveNumber>
+integer				::=  ("+" | "-")? <PositiveInteger>
+percentage			::=  <number> "%"
+angle				::= <number> ( "deg" | "grad" | "rad" ) | "0"
+space				::= [#0x0009] | [#0x000B] | [#0x000C] | [#0x000D] | [#0x0020] | [#0x000A] | [#0xFEFF] | <comment>
+comment				::= "/*" ^"*/"* "*/"
+length				::= <number> (<relunit> | <absunit>)?
+comma				::= <space>* "," <space>*
+important			::= (<space>* "!important")?
+color				::= <colorKeyword> | <rgb> | <rgba> | <hsl> | <hsla>
+hsl					::= "hsl(" <hslPart> ")"
+hsla				::= "hsla(" <hslPart> <comma> <PositiveNumber> ")"
+hslPart				::= <integer> <comma> <percentage> <comma> <percentage>
+rgb					::= [#0x0023] <hex> <hex> <hex> (<hex> <hex> <hex>)? | "rgb(" <rgbUnit> <comma> <rgbUnit> <comma> <rgbUnit> ")"
+rgba				::= "rgba(" <space>* <rgbUnit> <comma> <rgbUnit> <comma> <rgbUnit> <comma> <PositiveNumber> <space>* ")"
+rgbUnit				::= <percentage> | <PositiveInteger>
+
+bgColor				::=	<color> | "transparent" | "currentColor"
+bgImage				::=	<image> | <gradient>  | "none"
+bgPosition			::=	<pointH> (<space>+ <pointV>)? |
+						<originV> (<space>+ <originH>) |
+						<originH> (<space>+ <originV>) |
+						"top" | "bottom"
+bgSize				::= (<percentage> | <length> | "auto") (<space>+ (<percentage> | <length> | "auto"))? | "cover" | "contain"
+bgRepeat			::= "repeat-x" | "repeat-y" | ("repeat" | "space" | "round" | "no-repeat") (<space>+ ("repeat" | "space" | "round" | "no-repeat"))?
+bgAttachment		::= "scroll" | "fixed" | "local"
+bgBox				::= "border-box" | "padding-box" | "content-box"
+bgLayer				::= (<bgImage><space>*)? (<bgPosition> (<space>* "/" <space>* <bgSize>)? <space>*)? (<bgRepeat> <space>*)? (<bgAttachment> <space>*)? (<bgBox> <space>* (<bgBox> <space>*)?)?
+finalBgLayer		::= (<bgColor><space>*)? <bgLayer>
+background			::= "background:" <space>* ((<bgLayer> | "inherit") <comma>)* (<finalBgLayer> | "inherit") <important>
+
+pointH				::= "left" | "center" | "right" | <percentage> | <length>
+pointV				::= "top" | "center" | "bottom" | <percentage> | <length>
+originH				::= "center" | ("left" | "right") (<space>+ (<percentage> | <length>))?
+originV				::= "center" | ("top" | "bottom") (<space>+ (<percentage> | <length>))?
+
+colorStop			::= (<color> | "currentColor" | "transparent") (<space>+ (<percentage> | <length>))?
+gradientSize 		::= "closest-side" | "closest-corner" | "farthest-side" | "farthest-corner" | "contain" | "cover"
+shape				::= "circle" | "ellipse"
+image				::= "url(" ("'" ^"'"+ "'" | "\"" ^"\""+ "\"" | ^")"+ ) ")"
+
+mozLinearGradient	::= "-moz-" "repeating-"? "linear-gradient" <space>* "(" (<mozGradientOrigin> <comma>)? <colorStop> (<comma> <colorStop> )+ <space>* ")"
+mozRadialGradient	::= "-moz-" "repeating-"? "radial-gradient" <space>* "(" (<mozGradientOrigin> <comma>)? (<mozGradientShape> <comma>)? <colorStop> (<comma> <colorStop>)+ <space>* ")"
+mozGradientOrigin	::= <angle> (<space>+ <mozGradientPoint>)? | <mozGradientPoint> (<space>+ <angle>)?
+mozGradientPoint2	::=	((<pointH>? || <pointV>?) <space>+){0,2}
+mozGradientPoint	::=	<pointH> (<space>+ <pointV>)? |
+						<pointV> (<space>+ <pointH>)? |
+						"top" | "center" | "bottom" |
+						"inherit"
+mozGradientShape	::= <shape> (<space>+ <gradientSize>)? | <gradientSize>
+
+webkitGradient		::= "-webkit-gradient" <space>* "(" <space>* ("linear" <comma> <webkitPoint> <comma> <webkitPoint> | "radial" <comma> <webkitRadialPoint> <comma> <webkitRadialPoint> ) ( <webkitStop> )? <space>* ")"
+webkitPoint			::= <pointH> <space>+ <pointV> | <pointV> <space>+ <pointH>
+webkitRadialPoint	::= <webkitPoint> (<comma> <length>)?
+webkitStop			::= <webkitColorStop>* (<comma> "from(" <color> ")" <webkitColorStop>* <comma> "to(" <color> ")" | <comma> "to(" <color> ")" <webkitColorStop>* <comma> "from(" <color> ")")? <webkitColorStop>*
+webkitColorStop		::= <comma> "color-stop(" ( ( <OnePointNumber> | <percentage>) <comma>)? <color> ")"
+
+linearGradient		::= "-webkit-"? "repeating-"? "linear-gradient" <space>* "(" <space>* (<gradientLine> <comma>)? <colorStop> (<comma> <colorStop>)+ <space>* ")"
+gradientLine		::= ("top" | "bottom") (<space>+ ("left" | "right"))? | ("left" | "right") (<space>+ ("top" | "bottom"))? | <angle>
+radialGradient		::= "-webkit-"? "repeating-"? "radial-gradient" <space>* "(" (<bgPosition> <comma>)? (<gradientShape> <comma>)? <colorStop> (<comma> <colorStop>)+ <space>* ")"
+gradientShape		::= <shape> (<space>+ <gradientSize>)? | <gradientSize> (<space>+ <shape>)? | (<length> | <percentage>) <space>+ (<length> | <percentage>)
+
+gradient			::= <mozLinearGradient> | <mozRadialGradient> | <webkitGradient> | <linearGradient> | <radialGradient>
+
+
+
+
+
+selectorsGroup		::= <selector> (<comma> <selector>)*
+selector			::= <simple_selector_sequence> (<combinator> <simple_selector_sequence>)*
+combinator			::= (<plus> | <greater0 | <tilde> | <space>) <space>*
+simple_selector_sequence	::= (<type_selector> | <universal>) (<hash> | <class> | <attrib> | <pseudo> | <negation>)* | (<hash> | <class> | <attrib> | <pseudo> | <negation>)+
+type_selector		::= <namespace_prefix>? <element_name>
+namespace_prefix	::= (<ident> | "*")? "|"
+element_name		::= <ident>
+universal			::= <namespace_prefix>? "*"
+class				::= "." <ident>
+attrib				::= "[" <space>* <namespace_prefix>? <ident> <space>* ([~^$*|]? "=" <space>* (<ident> | <string>) <space>*)? "]"
+pseudo				::= ":" ":"? (ident | functional_pseudo)
+functional_pseudo	::= <function> <space>* <expression> ")"
+expression			::= ((<space>* "+" | "-" | <num> <ident> | <num> | <string> | <ident> ] <space>*)+
+negation			::= <not> <space>* <negation_arg> <space>* ")"
+negation_arg		::= <type_selector> | <universal> | <hash> | <class> | <attrib> | <pseudo>
+
+ident				::= "-"? <nmstart> <nmchar>*
+name				::= <nmchar>+
+nmstart				::= [_a-z] | <nonascii> | <escape>
+nonascii			::= ^[#0-#177]
+unicode				::= "\\" [0-9a-f] [0-9a-f]? [0-9a-f]? [0-9a-f]? [0-9a-f]? [0-9a-f]? ("\r\n"| [ \n\r\t\f] )?
+escape				::= <unicode> | "\\" [^\n\r\f0-9a-f]
+nmchar				::= [_a-z0-9-] | <nonascii> | <escape>
+num					::= [0-9]+ | [0-9]* "." [0-9]+
+string				::= <string1> | <string2>
+string1   			::= "\"" (^[\n\r\f\\"] | "\\" <nl> | <nonascii> | <escape>)* "\""
+string2   			::= "\'" (^[\n\r\f\\'] | "\\" <nl> | <nonascii> | <escape>)* "\'"
+invalid				::= <invalid1> | <invalid2>
+invalid1			::= "\"" ([^\n\r\f\\"] | \\<nl>| <nonascii> | <escape>)*
+invalid2			::= "\'" ([^\n\r\f\\"] | \\<nl>| <nonascii> | <escape>)*
+nl					::= "\n" | "\r\n" | "\r" | "\0"
+w					::= [ \t\r\n\f]*
+
+function			::= <ident> "("
+hash				::= "#" <name>
+plus				::= <space>* "+"
+greater				::= <space>* ">"
+tilde				::= <space>* "~"
+not					::= ":" "not" "("
+rule				::= <space>* <selectorsGroup> <space>+ "{" (<property>? ";")* (<property>? ";"*)? "}"
+propertyName		::= (<alpha> | <digit> | "-")+
+propertyValue		::= (<alpha> | <digit> | "-" | "." | <space> | "#" | "," | "%")+ <space>* "!important"?
+property			::= <propertyName> <space>* ":" <space>* <propertyValue>
+
+marginWidth			::= <space>* (<number> (<unit> | <percentage>) | "auto")
+margin				::= "margin" <space>* ":" (<marginWidth> <marginWidth>? <marginWidth>? <marginWidth>? | "inherit")
+marginPart			::= "margin-" ("top" | "right" | "bottom" | "left") <space>* ":" (<marginWidth> | "inherit")
+
+cssProperty			::= (<margin> | <marginPart>) <space>* "!important"?

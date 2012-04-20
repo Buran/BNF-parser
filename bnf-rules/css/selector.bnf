@@ -1,0 +1,15 @@
+selectorsGroup		::= <selector> (<comma> <selector>)*
+selector			::= <simple_selector_sequence> (<combinator> <simple_selector_sequence>)*
+combinator			::= (<plus> | <greater> | <tilde> | <space>) <space>*
+simple_selector_sequence	::= (<type_selector> | <universal>) (<hash> | <class> | <attrib> | <pseudo> | <negation>)* | (<hash> | <class> | <attrib> | <pseudo> | <negation>)+
+type_selector		::= <namespace_prefix>? <element_name>
+namespace_prefix	::= (<ident> | "*")? "|"
+element_name		::= <ident>
+universal			::= <namespace_prefix>? "*"
+class				::= "." <ident>
+attrib				::= "[" <space>* <namespace_prefix>? <ident> <space>* ([~^$*|]? "=" <space>* (<ident> | <string>) <space>*)? "]"
+pseudo				::= ":" ":"? (<ident> | <functional_pseudo>)
+functional_pseudo	::= <function> <space>* <expression> ")"
+expression			::= ((<space>* "+" | "-" | <num> <ident> | <num> | <string> | <ident> ) <space>*)+
+negation			::= <not> <space>* <negation_arg> <space>* ")"
+negation_arg		::= <type_selector> | <universal> | <hash> | <class> | <attrib> | <pseudo>

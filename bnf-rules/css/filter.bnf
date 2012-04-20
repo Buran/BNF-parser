@@ -1,0 +1,3 @@
+filter		::= "filter:" <space>* "progid:DXImageTransform.Microsoft." <filters> "(" #<filterProperties> ")"
+filters		::= "gradient" | "MotionBlur" | "Blur" | "Wheel"
+#startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1

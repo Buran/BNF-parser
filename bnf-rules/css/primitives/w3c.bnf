@@ -10,8 +10,8 @@ string				::= <string1> | <string2>
 string1   			::= "\"" (^[\n\r\f\\"] | "\\" <nl> | <nonascii> | <escape>)* "\""
 string2   			::= "\'" (^[\n\r\f\\'] | "\\" <nl> | <nonascii> | <escape>)* "\'"
 invalid				::= <invalid1> | <invalid2>
-invalid1			::= "\"" ([^\n\r\f\\"] | \\<nl>| <nonascii> | <escape>)*
-invalid2			::= "\'" ([^\n\r\f\\"] | \\<nl>| <nonascii> | <escape>)*
+invalid1			::= "\"" ([^\n\r\f\\"] | "\\" <nl> | <nonascii> | <escape>)*
+invalid2			::= "\'" ([^\n\r\f\\"] | "\\" <nl> | <nonascii> | <escape>)*
 nl					::= "\n" | "\r\n" | "\r" | "\0"
 w					::= [ \t\r\n\f]*
 

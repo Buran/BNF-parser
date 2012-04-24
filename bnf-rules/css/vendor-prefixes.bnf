@@ -6,4 +6,4 @@ prefixMozilla		::= "-moz-"
 prefixOpera			::= "-o-" | "-xv-"
 prefixKhtml			::= "-khtml-"
 prefixWebkit		::= "-webkit-"
-vendorPrefix		::= <prefix-microsoft> | <prefix-mozilla> | <prefix-opera> | <prefix-khtml> | <prefix-webkit>
+vendorPrefix		::= <prefixMicrosoft> | <prefixMozilla> | <prefixOpera> | <prefixKhtml> | <prefixWebkit>

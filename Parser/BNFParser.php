@@ -18,8 +18,8 @@ class BNFParser {
 	private $current_rule;
 	private $current_rules;
 
-	public function __construct(&$BNF, $source) {
-		$this->BNF =& $BNF;
+	public function __construct($BNF, $source) {
+		$this->BNF = $BNF;
 		$this->setSource($source);
 	}
 

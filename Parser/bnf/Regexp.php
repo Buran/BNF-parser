@@ -6,7 +6,7 @@ class BNFRegexp {
 		(?<negate>\^\s*)?
 		(
 			(
-				\<(?<link>[a-zA-Z_\d]+)\>
+				\<(?<link>(?:[a-zA-Z_-]+)(?:[a-zA-Z\d_-]*))\>
 				|
 				"
 					(?<string>

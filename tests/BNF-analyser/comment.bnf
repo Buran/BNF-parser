@@ -1,0 +1,14 @@
+a		::=	"b" # comment
+
+# comment
+
+| ("c")
+
+# comment
+
+b		::= "d"
+
+space	::= [#0x0009] #0x0009
+
+c		::= "e" ("f"#comment
+"g")
